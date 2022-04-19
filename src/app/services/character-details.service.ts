@@ -12,7 +12,7 @@ export class CharacterDetailsService {
 
   constructor(private http: HttpClient) { }
 
-  getCharacterDetail(id: string): Observable<Character> {
-    return this.http.get<Character>(`${environment.apiUrl}${CharacterDetailsService.ROOT_ENDPOINT}/${id}?apikey=${environment.apikey}`);
+  getCharacterDetail(id: number): Observable<any> {
+    return this.http.get<any>(`${environment.apiUrl}${CharacterDetailsService.ROOT_ENDPOINT}/${id}?apikey=${environment.apikey}`);
   }
 }

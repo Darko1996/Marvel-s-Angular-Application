@@ -1,1 +1,17 @@
-<p>character-detail works!</p>
+<section [@slideIn]>
+  <h1 class="title text-center">{{character?.name}} Details</h1>
+  <div class="md-container">
+    <div class="col-3 master">
+      <div class="master-item" (click)="select(character?.comics, 'Comics')">Comics</div>
+      <div class="master-item" (click)="select(character?.stories, 'Stories')">Stories</div>
+      <div class="master-item" (click)="select(character?.events, 'Events')">Events</div>
+      <div class="master-item" (click)="select(character?.series, 'Series')">Series</div>
+    </div>
+    <div  class="col-9 detail">
+      <h1 class="detail-title text-center">{{title}}</h1>
+      <div *ngFor="let item of selectedOption">
+        <p>{{item.name}}</p>
+      </div>
+    </div>
+  </div>
+</section>

@@ -10,6 +10,11 @@ import { CharacterDetailsComponent } from './components/character-details/charac
 import { SharedLoaderComponent } from './components/shared/shared-loader/shared-loader.component';
 import { SharedSearchComponent } from './components/shared/shared-search/shared-search.component';
 import {HttpClientModule} from "@angular/common/http";
+import { StoreModule } from '@ngrx/store';
+import * as fromApp from './ngrx/app.reducer';
+import {ToastrModule} from "ngx-toastr";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {NgxPaginationModule} from "ngx-pagination";
 
 @NgModule({
   declarations: [
@@ -19,12 +24,16 @@ import {HttpClientModule} from "@angular/common/http";
     HomeComponent,
     CharacterDetailsComponent,
     SharedLoaderComponent,
-    SharedSearchComponent
+    SharedSearchComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+    StoreModule.forRoot(fromApp.reducers),
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

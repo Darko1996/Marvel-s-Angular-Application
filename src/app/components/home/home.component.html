@@ -1,12 +1,13 @@
-<section class="section-2">
+<section class="section-2" [@slideIn]>
   <svg class="top-img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#EFF1F2" fill-opacity="1" d="M0,288L0,288L160,288L160,256L320,256L320,128L480,128L480,288L640,288L640,96L800,96L800,192L960,192L960,160L1120,160L1120,128L1280,128L1280,288L1440,288L1440,320L1280,320L1280,320L1120,320L1120,320L960,320L960,320L800,320L800,320L640,320L640,320L480,320L480,320L320,320L320,320L160,320L160,320L0,320L0,320Z"></path></svg>
 
   <div class="products-main">
     <div class="title">
-      <h1>Our Best Products</h1>
+      <h1>List of characters</h1>
     </div>
     <div class="products">
-      <div class="box" *ngFor="let character of characters">
+      <div class="box" *ngFor="let character of characters | paginate: { itemsPerPage: pageSize, currentPage: p, totalItems: total }"
+           (click)="redirectToCharacterDetails(character)">
         <span></span>
         <span></span>
         <span></span>
@@ -15,11 +16,14 @@
           <img src="{{character?.thumbnail?.path}}.{{character?.thumbnail?.extension}}" alt="{{character?.name}}">
           <div class="details">
             <h3>{{character?.name}}</h3>
-            <p> {{character?.description}}</p>
+            <p>{{character?.description}}</p>
           </div>
         </div>
+
       </div>
     </div>
+
+    <pagination-controls (pageChange)="pageChangeEvent($event)"></pagination-controls>
   </div>
 
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#EFF1F2" fill-opacity="1" d="M0,288L0,288L160,288L160,256L320,256L320,128L480,128L480,288L640,288L640,96L800,96L800,192L960,192L960,160L1120,160L1120,128L1280,128L1280,288L1440,288L1440,0L1280,0L1280,0L1120,0L1120,0L960,0L960,0L800,0L800,0L640,0L640,0L480,0L480,0L320,0L320,0L160,0L160,0L0,0L0,0Z"></path></svg>

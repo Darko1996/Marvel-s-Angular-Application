@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {environment} from "../../environments/environment";
-import {Character} from "../models/character";
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +11,8 @@ export class CharactersService {
 
   constructor(private http: HttpClient) { }
 
-  getCharacters(): Observable<any> {
-    return this.http.get<any>(`${environment.apiUrl}${CharactersService.ROOT_ENDPOINT}?apikey=${environment.apikey}`);
+  getCharacters(pageSize: number, offset: number): Observable<any> {
+    return this.http.get<any>(`${environment.apiUrl}${CharactersService.ROOT_ENDPOINT}?limit=${pageSize}&offset=${offset}&apikey=${environment.apikey}`);
   }
 
 }

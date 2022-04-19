@@ -133,8 +133,8 @@ header {
   .mob-menu {
     background-color: $color-primary;
     position: relative;
-    padding: 30px 5%;
-    width: 50%;
+    padding: 30px 10% 30px 5%;
+    width: 70%;
     clip-path: polygon(0 0, 100% 0%, 81% 100%, 0% 100%);
 
     .app-shared-search {

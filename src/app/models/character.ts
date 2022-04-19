@@ -1,4 +1,5 @@
 export class Character {
+  id: number;
   comics: any;
   description: string;
   events: any;
