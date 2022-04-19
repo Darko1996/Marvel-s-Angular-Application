@@ -15,4 +15,8 @@ export class CharactersService {
     return this.http.get<any>(`${environment.apiUrl}${CharactersService.ROOT_ENDPOINT}?limit=${pageSize}&offset=${offset}&apikey=${environment.apikey}`);
   }
 
+  charactersSearch(text: string): Observable<any> {
+    return this.http.get<any>(`${environment.apiUrl}${CharactersService.ROOT_ENDPOINT}?name=${text}&apikey=${environment.apikey}`);
+  }
+
 }

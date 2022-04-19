@@ -15,6 +15,7 @@ import * as fromApp from './ngrx/app.reducer';
 import {ToastrModule} from "ngx-toastr";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {NgxPaginationModule} from "ngx-pagination";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -26,15 +27,16 @@ import {NgxPaginationModule} from "ngx-pagination";
     SharedLoaderComponent,
     SharedSearchComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    ToastrModule.forRoot(),
-    StoreModule.forRoot(fromApp.reducers),
-    NgxPaginationModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        ToastrModule.forRoot(),
+        StoreModule.forRoot(fromApp.reducers),
+        NgxPaginationModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

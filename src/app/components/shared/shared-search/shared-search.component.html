@@ -1,4 +1,18 @@
-<form action="" class="search" [ngClass]="{'open': !open}">
-  <input type="search" placeholder="Search here ...">
-  <button class="search-btn" type="button"></button>
-</form>
+<div id="search-container-autocomplete">
+  <div id="thirdDiv" class="search-input-container search-input-container-focus " >
+    <div class="input-components">
+      <label class="search-image search-image-focus"  for="search-input-autocomplete">
+        <img src="../../../../assets/images/icons/icon-search.svg" alt="search">
+      </label>
+      <input (input)="textChanged()"
+             id="search-input-autocomplete"  type="text" placeholder="Search here ..." [(ngModel)]="_searchText">
+      <img *ngIf="_searchText && _searchText.length > 0" class="search-cross" src="../../../../assets/images/icons/cross.svg" alt="remove text" (click)="clearSearch()">
+    </div>
+  </div>
+  <ul class="search-options-list" *ngIf="isOpen">
+    <li (click)="onClick(item)" *ngFor="let item of filteredOptions" class="search-text">
+      <strong *ngIf="viewSearchId" class="search-text bold-search-text">({{ item.id }})</strong>{{ item.name }}
+    </li>
+    <li (click)="notFound()" *ngIf="filteredOptions && filteredOptions.length === 0"><span class="search-text">no item found</span></li>
+  </ul>
+</div>
