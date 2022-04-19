@@ -114,7 +114,7 @@ section {
       }
 
       &:hover .content:before {
-        left: 0%;
+        left: 0;
       }
 
       span {
@@ -164,6 +164,17 @@ section {
   .section-2 {
     .products {
       justify-content: center;
+    }
+    .box {
+      .content {
+        .details {
+          opacity: 1 !important;
+        }
+
+        &:before {
+          left: 0 !important;
+        }
+      }
     }
   }
 }
